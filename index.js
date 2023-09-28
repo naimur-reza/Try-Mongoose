@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const todoHandler = require("./todoRouter/todoHandler");
+const todoHandler = require("./routeHandler/todoHandler/todoHandler");
 // middle wares
 app.use(morgan("dev"));
 app.use(express.json());

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Todo = require("../schemas/todoSchema");
+const Todo = require("../../schemas/todoSchema");
 
 // get all the todo's
 router.get("/", async (req, res) => {
