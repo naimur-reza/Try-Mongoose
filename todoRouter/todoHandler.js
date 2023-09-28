@@ -19,7 +19,17 @@ router.post("/all", async (req, res) => {
 });
 
 // update the todo
-router.put("/:id", async (req, res) => {});
+router.put("/:id", async (req, res) => {
+  await Todo.updateOne(
+    { _id: req.params.id },
+    {
+      $set: {
+        ...req.body,
+      },
+    }
+  );
+  res.status(200).send("Updated");
+});
 
 // delete the todo
 router.delete("/:id", async (req, res) => {
