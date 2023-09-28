@@ -8,17 +8,8 @@ router.get("/", async () => {});
 // post  the todo
 router.post("/", async (req, res) => {
   const newTodo = new Todo(req.body);
-  await newTodo.save((err) => {
-    if (err) {
-      res.status(500).json({
-        error: "Something is wrong",
-      });
-    } else {
-      res.status(200).json({
-        message: "Todo inserted successful!",
-      });
-    }
-  });
+  await newTodo.save();
+  res.send(newTodo);
 });
 
 // post multiple todo
