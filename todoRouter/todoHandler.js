@@ -29,6 +29,7 @@ router.put("/:id", async (req, res) => {
     },
     {
       new: true,
+      runValidators: true,
     }
   );
   res.send(result);
