@@ -12,9 +12,13 @@ router.get("/", async (req, res) => {
   //   console.log(err);
   // }
 
+  // retrieve using instance method
   const todo = new Todo();
   const result = await todo.findByStatus("active");
-  res.json(result);
+
+  // retrieve using statics method
+  const newResult = await Todo.findByTitle("new todo");
+  res.send(newResult);
 });
 
 // post  the todo
