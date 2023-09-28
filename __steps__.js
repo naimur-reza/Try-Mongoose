@@ -4,5 +4,6 @@
 3. Create  a instance from the model
 4. Then use operation from the instance
 5. For create a instance method we have to use methods in schema, and then create a model and return the function
+6. Then create a instance in handler and use the function from the schema 
 
 `;
