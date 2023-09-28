@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   const result = await todo.findByStatus("active");
 
   // retrieve using statics method
-  const newResult = await Todo.findByTitle("new todo");
+  const newResult = await Todo.findByTitle("old todo");
   res.send(newResult);
 });
 
