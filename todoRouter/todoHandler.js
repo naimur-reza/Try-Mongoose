@@ -13,10 +13,17 @@ router.post("/", async (req, res) => {
 });
 
 // post multiple todo
-router.post("/all", async () => {});
+router.post("/all", async (req, res) => {
+  await Todo.insertMany(req.body);
+  res.send(req.body);
+});
 
 // update the todo
-router.put("/:id", async () => {});
+// router.put("/:id", async (req, res) => {
+//   const id = req.params.id;
+//   await Todo.deleteOne({ _id: new Objecti id });
+//   res.status(200).send("Deleted");
+// });
 
 // delete the todo
 router.delete("/:id", async () => {});
