@@ -4,6 +4,7 @@ const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const todoHandler = require("./routeHandler/todoHandler/todoHandler");
+const userHandler = require("./routeHandler/userHanlder/userHandler");
 // middle wares
 app.use(morgan("dev"));
 app.use(express.json());
@@ -20,6 +21,7 @@ mongoose
 // router
 
 app.use("/todo", todoHandler);
+app.use("/user", userHandler);
 
 // default error handlers
 app.use((err, req, res, next) => {
