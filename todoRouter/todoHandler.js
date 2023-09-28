@@ -19,13 +19,12 @@ router.post("/all", async (req, res) => {
 });
 
 // update the todo
-// router.put("/:id", async (req, res) => {
-//   const id = req.params.id;
-//   await Todo.deleteOne({ _id: new Objecti id });
-//   res.status(200).send("Deleted");
-// });
+router.put("/:id", async (req, res) => {});
 
 // delete the todo
-router.delete("/:id", async () => {});
+router.delete("/:id", async (req, res) => {
+  await Todo.deleteOne({ _id: req.params.id });
+  res.status(200).send("Deleted");
+});
 
 module.exports = router;
