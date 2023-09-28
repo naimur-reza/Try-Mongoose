@@ -3,7 +3,11 @@ const router = express.Router();
 const Todo = require("../schemas/todoSchema");
 
 // get all the todo's
-router.get("/", async () => {});
+router.get("/", async (req, res) => {
+  const filter = { status: "active" }; // use filter if we need to get specific condition data
+  const result = await Todo.find(filter);
+  res.send(result);
+});
 
 // post  the todo
 router.post("/", async (req, res) => {
