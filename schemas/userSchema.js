@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -12,6 +12,10 @@ const userSchema = mongoose.Schema({
   status: {
     type: String,
     enum: ["active", "inactive"],
+  },
+  password: {
+    type: String,
+    required: true,
   },
 });
 
