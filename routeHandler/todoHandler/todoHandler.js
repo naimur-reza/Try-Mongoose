@@ -1,16 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const Todo = require("../schemas/todoSchema");
+const Todo = require("../../schemas/todoSchema");
 
 // get all the todo's
 router.get("/", async (req, res) => {
-  try {
-    const filter = { status: "active" }; // use filter if we need to get specific condition data
-    const result = await Todo.find(filter).select({ _id: 1, title: 1 }); // use select if we need just specific fields
-    res.send(result);
-  } catch (err) {
-    console.log(err);
-  }
+  // try {
+  //   const filter = { status: "active" }; // use filter if we need to get specific condition data
+  //   const result = await Todo.find(filter).select({ _id: 1, title: 1 }); // use select if we need just specific fields
+  //   res.send(result);
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  // retrieve using instance method
+  const todo = new Todo();
+  const result = await todo.findByStatus("active");
+
+  // retrieve using statics method
+  const newResult = await Todo.findByTitle("old todo");
+  res.send(newResult);
 });
 
 // post  the todo
