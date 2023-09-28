@@ -16,4 +16,10 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
+todoSchema.methods = {
+  findByStatus: (status) => {
+    return mongoose.model("Todo", todoSchema).find({ status });
+  },
+};
+
 module.exports = mongoose.model("Todo", todoSchema);
